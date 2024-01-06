@@ -1,0 +1,19 @@
+﻿using CourseStor.Models.Courses.Entities;
+using CourseStor.Models.Frameworks;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CourseStor.Models.Courses.CommandsTeacherCourse
+{
+    public class DeleteCourseTeacher: IRequest<ApplicationServiceResponse<CourseTeacher>>
+    {
+        [Required]
+        [Range(1, int.MaxValue)]
+        public int Id { get; set; }
+    }
+}
