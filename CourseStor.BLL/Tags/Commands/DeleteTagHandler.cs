@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Tags.Commands
 {
-    public class DeleteTagHandler : BaseApplicationServiceHandler<DeleteTag, Tag>
+    public class DeleteTagHandler : ApplicationServiceHandler<DeleteTag, Tag>
     {
         public DeleteTagHandler(CourseStorDbContext context) : base(context)
         {

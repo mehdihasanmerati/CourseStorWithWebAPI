@@ -13,47 +13,33 @@ namespace CourseStor.WebAPI.Orders
 {
     public class OrderController : BaseController
     {
-        public OrderController(IMediator mediator) : base(mediator)
+        public OrderController(IMediator mediator, ApplicationServiceResponse responceForUI) : base(mediator, responceForUI)
         {
         }
+
 
         [HttpPost("CreateOrder")]
-        public async Task<IActionResult> CreateOrder(CreateOrderCommand order)
-        {
-            var responce = await mediator.Send(order);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
-
-        //[HttpPost("CreateOrder")]
-        //public async Task<IActionResult> CreateOrder(CreateOrderCommand order) => await HandleResponse(order);
+        public async Task<IActionResult> CreateOrder(CreateOrderCommand order) => await HandleResponse(order);
 
 
         [HttpPut("UpdateOrder")]
-        public async Task<IActionResult> UpdateOrder(UpdateOrderCommand order)
-        {
-            var responce = await mediator.Send(order);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> UpdateOrder(UpdateOrderCommand order) => await HandleResponse(order);
+
 
         [HttpGet("SearchOrder")]
-        public async Task<IActionResult> SearchOrder([FromQuery] FilterByOrder order)
-        {
-            var responce = await mediator.Send(order);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> SearchOrder([FromQuery] FilterByOrder order) => await HandleResponse(order);
+
 
 
         [HttpDelete("DeleteOrder")]
-        public async Task<IActionResult> DeleteOrder([FromQuery] DeleteOrderCommand order)
-        {
-            var responce = await mediator.Send(order);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> DeleteOrder([FromQuery] DeleteOrderCommand order) => await HandleResponse(order);
+
 
     }
+}
 
 
 
     
 
-}
+

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Teachers.Commands
 {
-    public class CreateTeacherHandler : BaseApplicationServiceHandler<CreateTeacher, Teacher>
+    public class CreateTeacherHandler : ApplicationServiceHandler<CreateTeacher, Teacher>
     {
         public CreateTeacherHandler(CourseStorDbContext context) : base(context)
         {

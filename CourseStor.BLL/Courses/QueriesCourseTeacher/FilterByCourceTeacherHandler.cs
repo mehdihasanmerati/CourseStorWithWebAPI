@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Courses.QueriesCourseTeacher
 {
-    public class FilterByCourceTeacherHandler : BaseApplicationServiceHandler<FilterByCourseTeacher, List<CourseTeacher>>
+    public class FilterByCourceTeacherHandler : ApplicationServiceHandler<FilterByCourseTeacher, List<CourseTeacher>>
     {
         public FilterByCourceTeacherHandler(CourseStorDbContext context) : base(context)
         {

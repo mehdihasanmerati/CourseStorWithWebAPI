@@ -1,4 +1,5 @@
-﻿using CourseStor.Models.Teachers.Commands;
+﻿using CourseStor.Models.Frameworks;
+using CourseStor.Models.Teachers.Commands;
 using CourseStor.Models.Teachers.Queries;
 using CourseStor.WebAPI.Frameworks;
 using MediatR;
@@ -10,38 +11,22 @@ namespace CourseStor.WebAPI.TeacherControllers
 
     public class TeacherController : BaseController
     {
-        public TeacherController(IMediator mediator) : base(mediator)
+        public TeacherController(IMediator mediator, ApplicationServiceResponse applicationService) : base(mediator, applicationService)
         {
         }
 
         [HttpPost("CreateTeacher")]
-        public async Task<IActionResult> CreateTeacher(CreateTeacher teacher)
-        {
-            var responce = await mediator.Send(teacher);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> CreateTeacher(CreateTeacher teacher) => await HandleResponse(teacher);
+
 
         [HttpPut("UpdateTeacher")]
-        public async Task<IActionResult> UpdateTeacher(UpdateTeacher teacher)
-        {
-            var responce = await mediator.Send(teacher);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> UpdateTeacher(UpdateTeacher teacher) => await HandleResponse(teacher);
 
         [HttpGet("SearchInfo")]
-        public async Task<IActionResult> SearchInfo([FromQuery] FilterByTeacher teacher)
-        {
-            var responce = await mediator.Send(teacher);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
-
-
+        public async Task<IActionResult> SearchInfo([FromQuery] FilterByTeacher teacher) => await HandleResponse(teacher);
 
         [HttpDelete("DeleteTeacher")]
-        public async Task<IActionResult> DeleteTeacher(DeleteTeacher teacher)
-        {
-            var responce = await mediator.Send(teacher);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> DeleteTeacher(DeleteTeacher teacher) => await HandleResponse(teacher);
+        
     }
 }

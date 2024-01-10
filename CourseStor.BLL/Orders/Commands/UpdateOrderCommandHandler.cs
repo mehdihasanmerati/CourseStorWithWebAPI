@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Orders.Commands
 {
-    public class UpdateOrderCommandHandler : BaseApplicationServiceHandler<UpdateOrderCommand, Order>
+    public class UpdateOrderCommandHandler : ApplicationServiceHandler<UpdateOrderCommand, Order>
     {
         public UpdateOrderCommandHandler(CourseStorDbContext context) : base(context)
         {

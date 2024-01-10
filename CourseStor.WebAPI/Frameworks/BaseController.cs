@@ -1,11 +1,7 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using System.Windows.Input;
-using System.Linq;
+﻿using CourseStor.BLL.Frameworks;
 using CourseStor.Models.Frameworks;
-using CourseStor.BLL.Frameworks;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CourseStor.WebAPI.Frameworks
 {
@@ -14,16 +10,20 @@ namespace CourseStor.WebAPI.Frameworks
     public class BaseController : ControllerBase
     {
         protected readonly IMediator mediator;
-        public BaseController(IMediator mediator)
+        private readonly ApplicationServiceResponse applicationService;
+
+        public BaseController(IMediator mediator, ApplicationServiceResponse applicationService)
         {
             this.mediator = mediator;
+            this.applicationService = applicationService;
         }
 
-        //protected async Task<IActionResult> HandleResponse<T>(T request)
-        //{
-        //    var response = await mediator.Send(request);
-        //    return _responce.IsSuccess ? Ok(response) : BadRequest(_responce.Errors);
-        //}
+        protected async Task<IActionResult> HandleResponse<T>(T request)
+        {
+            var response = await mediator.Send(request);
+            return applicationService.IsSuccess ? Ok(response) : BadRequest(applicationService.Errors);
+            
+        }
 
     }
 

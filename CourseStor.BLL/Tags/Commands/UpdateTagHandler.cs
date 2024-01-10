@@ -5,7 +5,7 @@ using CourseStor.Models.Tags.Entities;
 
 namespace CourseStor.BLL.Tags.Commands
 {
-    public class UpdateTagHandler : BaseApplicationServiceHandler<UpdateTag,Tag>
+    public class UpdateTagHandler : ApplicationServiceHandler<UpdateTag,Tag>
     {
         public UpdateTagHandler(CourseStorDbContext _context) : base(_context)
         {

@@ -5,7 +5,7 @@ using CourseStor.Models.Courses.Entities;
 
 namespace CourseStor.BLL.Courses.Commands
 {
-    public class UpdateCourseHandler : BaseApplicationServiceHandler<UpdateCourse, Course>
+    public class UpdateCourseHandler : ApplicationServiceHandler<UpdateCourse, Course>
     {
         public UpdateCourseHandler(CourseStorDbContext context) : base(context)
         {

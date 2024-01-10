@@ -4,12 +4,12 @@ using MediatR;
 
 namespace CourseStor.BLL.Frameworks
 {
-    public abstract class BaseApplicationServiceHandler<TRequest, TResult> : IRequestHandler<TRequest, ApplicationServiceResponse<TResult>>
+    public abstract class ApplicationServiceHandler<TRequest, TResult> : IRequestHandler<TRequest, ApplicationServiceResponse<TResult>>
         where TRequest : IRequest<ApplicationServiceResponse<TResult>>
     {
         protected readonly CourseStorDbContext _context;
         private readonly ApplicationServiceResponse<TResult> _response = new ApplicationServiceResponse<TResult> { };
-        public BaseApplicationServiceHandler(CourseStorDbContext context)
+        public ApplicationServiceHandler(CourseStorDbContext context)
         {
             _context = context;
         }

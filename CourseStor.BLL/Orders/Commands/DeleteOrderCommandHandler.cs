@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Orders.Commands
 {
-    public class DeleteOrderCommandHandler : BaseApplicationServiceHandler<DeleteOrderCommand, Order>
+    public class DeleteOrderCommandHandler : ApplicationServiceHandler<DeleteOrderCommand, Order>
     {
         public DeleteOrderCommandHandler(CourseStorDbContext context) : base(context)
         {

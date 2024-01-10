@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Courses.CommandsTeacherCourse
 {
-    public class CreateTeacherCourseHandler : BaseApplicationServiceHandler<CreateCourseTeacher, CourseTeacher>
+    public class CreateTeacherCourseHandler : ApplicationServiceHandler<CreateCourseTeacher, CourseTeacher>
     {
         public CreateTeacherCourseHandler(CourseStorDbContext context) : base(context)
         {

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Orders.Commands
 {
-    public class CreateOrderCommandHandler : BaseApplicationServiceHandler<CreateOrderCommand, Order>
+    public class CreateOrderCommandHandler : ApplicationServiceHandler<CreateOrderCommand, Order>
     {
 
         public CreateOrderCommandHandler(CourseStorDbContext context) : base(context)

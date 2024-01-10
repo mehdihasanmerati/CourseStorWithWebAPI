@@ -1,5 +1,6 @@
 ﻿using CourseStor.Models.Courses.Commands;
 using CourseStor.Models.Courses.Queries;
+using CourseStor.Models.Frameworks;
 using CourseStor.WebAPI.Frameworks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -9,37 +10,25 @@ namespace CourseStor.WebAPI.CourseControllers
 {
     public class CourseController : BaseController
     {
-        public CourseController(IMediator mediator) : base(mediator)
+        public CourseController(IMediator mediator, ApplicationServiceResponse applicationService) : base(mediator, applicationService)
         {
         }
 
         [HttpPost("CreateCourse")]
-        public async Task<IActionResult> AddCourse(CreateCourse course)
-        {
-            var response = await mediator.Send(course);
-            return response.IsSuccess ? Ok(response) : BadRequest(response.Errors);
-        }
+        public async Task<IActionResult> AddCourse(CreateCourse course) => await HandleResponse(course);
+
 
         [HttpPut("UpdateCourse")]
-        public async Task<IActionResult> UpdateCourse(UpdateCourse course)
-        {
-            var responce = await mediator.Send(course);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> UpdateCourse(UpdateCourse course) => await HandleResponse(course);
+
 
         [HttpGet("SearchName")]
-        public async Task<IActionResult> SearchName([FromQuery] FilterByInfo course)
-        {
-            var responce = await mediator.Send(course);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> SearchName([FromQuery] FilterByInfo course) => await HandleResponse(course);
+
 
         [HttpDelete("DeleteCourse")]
-        public async Task<IActionResult> DeleteCourse([FromQuery] DeleteCourse course)
-        {
-            var responce = await mediator.Send(course);
-            return responce.IsSuccess ? Ok(responce) : BadRequest(responce.Errors);
-        }
+        public async Task<IActionResult> DeleteCourse([FromQuery] DeleteCourse course) => await HandleResponse(course);
+        
 
     }
 }
