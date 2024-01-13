@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseStor.DAL.Migrations
 {
     [DbContext(typeof(CourseStorDbContext))]
-    [Migration("20231225105050_AddCouseStor")]
-    partial class AddCouseStor
+    [Migration("20240112100512_initializeCourseStorInfo")]
+    partial class initializeCourseStorInfo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,20 +34,34 @@ namespace CourseStor.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CommentBy")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Comments")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("StarRate")
                         .HasColumnType("int");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -64,6 +78,14 @@ namespace CourseStor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("CreateDateCorse")
                         .HasColumnType("datetime2");
 
@@ -71,7 +93,6 @@ namespace CourseStor.DAL.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
@@ -79,6 +100,14 @@ namespace CourseStor.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -96,8 +125,24 @@ namespace CourseStor.DAL.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("TagId")
                         .HasColumnType("int");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -119,11 +164,27 @@ namespace CourseStor.DAL.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
 
                     b.Property<int>("TeacherId")
                         .HasColumnType("int");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -145,21 +206,35 @@ namespace CourseStor.DAL.Migrations
                     b.Property<int>("CourseId")
                         .HasColumnType("int");
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("CreateOrder")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerEmail")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -176,10 +251,26 @@ namespace CourseStor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("TagName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -194,6 +285,14 @@ namespace CourseStor.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("CreateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -203,6 +302,14 @@ namespace CourseStor.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("UpdateBy")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasMaxLength(50)
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

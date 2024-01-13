@@ -3,6 +3,7 @@ using CourseStor.Models.Tags.Commands;
 using CourseStor.Models.Tags.Quries;
 using CourseStor.WebAPI.Frameworks;
 using MediatR;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseStor.WebAPI.TagControllers
@@ -27,7 +28,18 @@ namespace CourseStor.WebAPI.TagControllers
 
 
         [HttpDelete("DeleteByName")]
-        public async Task<IActionResult> DeleteByName([FromQuery] DeleteTag tag) => await HandleResponse(tag);
-        
+        public async Task<IActionResult> DeleteByName(DeleteTag tag) => await HandleResponse(tag);
+
+        [HttpPatch("PatchForTag")]
+        public async Task<IActionResult> PatchForTag(int id,JsonPatchDocument<PatchForTag> jsonPatchDocument)
+        {
+            var patchForTag = new PatchForTag();
+            if (jsonPatchDocument != null)
+            {
+                patchForTag.Id = id;
+                jsonPatchDocument.ApplyTo(patchForTag);
+            }
+           return await HandleResponse(patchForTag);
+        } 
     }
 }

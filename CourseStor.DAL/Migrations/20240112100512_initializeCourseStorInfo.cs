@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CourseStor.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCouseStor : Migration
+    public partial class initializeCourseStorInfo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,9 +18,13 @@ namespace CourseStor.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ShortDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    ShortDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    CreateDateCorse = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreateDateCorse = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,7 +37,11 @@ namespace CourseStor.DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TagName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    TagName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -47,7 +55,11 @@ namespace CourseStor.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,10 +72,14 @@ namespace CourseStor.DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Comments = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    CommentBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Comments = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CommentBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     StarRate = table.Column<int>(type: "int", nullable: false),
-                    CourseId = table.Column<int>(type: "int", nullable: false)
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -83,10 +99,14 @@ namespace CourseStor.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    CustomerEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreateOrder = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CustomerEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateOrder = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,7 +126,11 @@ namespace CourseStor.DAL.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseId = table.Column<int>(type: "int", nullable: false),
-                    TagId = table.Column<int>(type: "int", nullable: false)
+                    TagId = table.Column<int>(type: "int", nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -133,7 +157,11 @@ namespace CourseStor.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseId = table.Column<int>(type: "int", nullable: false),
                     TeacherId = table.Column<int>(type: "int", nullable: false),
-                    SortOrder = table.Column<int>(type: "int", nullable: false)
+                    SortOrder = table.Column<int>(type: "int", nullable: false),
+                    CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
+                    UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {

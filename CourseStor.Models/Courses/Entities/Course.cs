@@ -11,13 +11,13 @@ namespace CourseStor.Models.Courses.Entities
 {
     public class Course: BaseEntity
     {
-        public string Title { get; set; }
-        public string ShortDescription { get; set; }
+        public string? Title { get; set; }
+        public string? ShortDescription { get; set; }
         public double Price { get; set; }
         public DateTime CreateDateCorse { get; set; }
-        public List<CourseTeacher> CourseTeachers{get; set; }
-        public List<CourseTag> CourseTags { get; set; }
-        public List<Comment> Comments { get; set; }
-        public List<Order> OrderCourses { get; set; }
+        public List<CourseTeacher>? CourseTeachers{get; set; }
+        public List<CourseTag>? CourseTags { get; set; }
+        public List<Comment>? Comments { get; set; }
+        public List<Order>? OrderCourses { get; set; }
     }
 }

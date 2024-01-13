@@ -2,12 +2,9 @@
 using CourseStor.Models.Orders.Queries;
 using CourseStor.WebAPI.Frameworks;
 using MediatR;
-using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-using System.Windows.Input;
 using CourseStor.Models.Frameworks;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace CourseStor.WebAPI.Orders
 {
@@ -32,9 +29,20 @@ namespace CourseStor.WebAPI.Orders
 
 
         [HttpDelete("DeleteOrder")]
-        public async Task<IActionResult> DeleteOrder([FromQuery] DeleteOrderCommand order) => await HandleResponse(order);
+        public async Task<IActionResult> DeleteOrder(DeleteOrderCommand order) => await HandleResponse(order);
 
-
+        [HttpPatch("PatchOrder")]
+        public async Task<IActionResult> PatchOrder(int id,int courseId, JsonPatchDocument<PatchOrderCommand> jsonDocument)
+        {
+            var patchOrder = new PatchOrderCommand();
+            if (jsonDocument != null && ModelState.IsValid)
+            {
+                patchOrder.Id = id;
+                patchOrder.CourseId = courseId;
+                jsonDocument.ApplyTo(patchOrder);
+            }
+            return await HandleResponse(patchOrder);
+        }
     }
 }
 
