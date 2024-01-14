@@ -17,21 +17,25 @@ namespace CourseStor.BLL.Orders.Commands
 
             try
             {
-                order.Id = request.Id;
-                order.CourseId = request.CourseId;
-                order.Name = request.Name;
-                order.Price = request.Price;
-                order.CustomerEmail = request.CustomerEmail;
-                await _context.SaveChangesAsync();
-                AddResult(order);
-
+                if (order != null)
+                {
+                    order.CourseId = request.CourseId;
+                    order.Name = request.Name;
+                    order.Price = request.Price;
+                    order.CustomerEmail = request.CustomerEmail;
+                    await _context.SaveChangesAsync();
+                    AddResult(order);
+                }
+                else
+                {
+                    AddError($"The Course or Order with {request.Id} and {request.CourseId} does not exist or is wrong! or other field is required. Try again please.");
+                }
             }
             catch (Exception)
             {
-
-                AddError($"The Course or Order with {request.Id} and {request.CourseId} is not exist or wrong! or other field is required.Try Again Please.");
-
+                AddError($"An error occurred while updating the order. Please try again.");
             }
+
         }
 
 

@@ -25,8 +25,8 @@ namespace CourseStor.BLL.Orders.Commands
             }
             else
             {
-                order.Id = request.Id;
-                order.CourseId = request.CourseId;
+               // order.Id = request.Id;
+               // order.CourseId = request.CourseId;
                 order.Name = request.Name;
                 order.Price = (double)request.Price;
                 order.CustomerEmail = request.CustomerEmail;

@@ -35,11 +35,18 @@ namespace CourseStor.WebAPI.Orders
         public async Task<IActionResult> PatchOrder(int id,int courseId, JsonPatchDocument<PatchOrderCommand> jsonDocument)
         {
             var patchOrder = new PatchOrderCommand();
-            if (jsonDocument != null && ModelState.IsValid)
+            try
             {
-                patchOrder.Id = id;
-                patchOrder.CourseId = courseId;
-                jsonDocument.ApplyTo(patchOrder);
+                if (jsonDocument != null && ModelState.IsValid)
+                {
+                    patchOrder.Id = id;
+                    patchOrder.CourseId = courseId;
+                    jsonDocument.ApplyTo(patchOrder);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             return await HandleResponse(patchOrder);
         }

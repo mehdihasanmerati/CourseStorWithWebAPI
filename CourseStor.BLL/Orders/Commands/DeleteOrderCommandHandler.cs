@@ -25,7 +25,6 @@ namespace CourseStor.BLL.Orders.Commands
             }
             else
             {
-                order.Id = request.Id;
                 _context.Orders.Remove(order);
                 await _context.SaveChangesAsync();
 
