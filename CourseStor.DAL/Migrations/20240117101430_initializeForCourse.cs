@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CourseStor.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class initializeCourseStorInfo : Migration
+    public partial class initializeForCourse : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,10 @@ namespace CourseStor.DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     ShortDescription = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    CreateDateCorse = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreateDateCorse = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
                     UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
@@ -54,8 +54,8 @@ namespace CourseStor.DAL.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     CreateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", maxLength: 50, nullable: false),
                     UpdateBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),

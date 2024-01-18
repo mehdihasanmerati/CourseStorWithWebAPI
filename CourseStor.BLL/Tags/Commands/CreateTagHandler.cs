@@ -8,7 +8,7 @@ using MediatR;
 
 namespace CourseStor.BLL.Tags.Commands
 {
-    public class CreateTagHandler : ApplicationServiceHandler<CreateTag,Tag>
+    public class CreateTagHandler : BaseApplicationServiceHandler<CreateTag,Tag>
     {
         public CreateTagHandler(CourseStorDbContext _context) : base(_context)
         {

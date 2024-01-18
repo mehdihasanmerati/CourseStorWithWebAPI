@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Tags.Commands
 {
-    public class PatchForTagHandler : ApplicationServiceHandler<PatchForTag, Tag>
+    public class PatchForTagHandler : BaseApplicationServiceHandler<PatchForTag, Tag>
     {
         public PatchForTagHandler(CourseStorDbContext context) : base(context)
         {

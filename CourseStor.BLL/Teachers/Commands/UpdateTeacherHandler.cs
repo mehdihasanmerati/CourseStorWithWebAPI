@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Teachers.Commands
 {
-    public class UpdateTeacherHandler : ApplicationServiceHandler<UpdateTeacher, Teacher>
+    public class UpdateTeacherHandler : BaseApplicationServiceHandler<UpdateTeacher, Teacher>
     {
         public UpdateTeacherHandler(CourseStorDbContext context) : base(context)
         {

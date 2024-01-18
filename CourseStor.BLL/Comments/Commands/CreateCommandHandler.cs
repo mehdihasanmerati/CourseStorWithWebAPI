@@ -5,7 +5,7 @@ using CourseStor.Models.Comments.Entities;
 
 namespace CourseStor.BLL.Comments.Commands
 {
-    public class CreateCommandHandler : ApplicationServiceHandler<CreateComment, Comment>
+    public class CreateCommandHandler : BaseApplicationServiceHandler<CreateComment, Comment>
     {
         public CreateCommandHandler(CourseStorDbContext context) : base(context)
         {

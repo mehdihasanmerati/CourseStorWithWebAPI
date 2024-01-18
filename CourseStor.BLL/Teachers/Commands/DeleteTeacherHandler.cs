@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Teachers.Commands
 {
-    public class DeleteTeacherHandler : ApplicationServiceHandler<DeleteTeacher, Teacher>
+    public class DeleteTeacherHandler : BaseApplicationServiceHandler<DeleteTeacher, Teacher>
     {
         public DeleteTeacherHandler(CourseStorDbContext context) : base(context)
         {

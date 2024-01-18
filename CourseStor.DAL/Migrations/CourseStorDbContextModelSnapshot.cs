@@ -83,7 +83,7 @@ namespace CourseStor.DAL.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreateDateCorse")
+                    b.Property<DateTime?>("CreateDateCorse")
                         .HasColumnType("datetime2");
 
                     b.Property<double>("Price")
@@ -94,7 +94,6 @@ namespace CourseStor.DAL.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -291,12 +290,10 @@ namespace CourseStor.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 

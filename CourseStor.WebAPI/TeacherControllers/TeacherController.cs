@@ -4,6 +4,7 @@ using CourseStor.Models.Teachers.Queries;
 using CourseStor.WebAPI.Frameworks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CourseStor.WebAPI.TeacherControllers
@@ -27,6 +28,28 @@ namespace CourseStor.WebAPI.TeacherControllers
 
         [HttpDelete("DeleteTeacher")]
         public async Task<IActionResult> DeleteTeacher(DeleteTeacher teacher) => await HandleResponse(teacher);
+
+        [HttpPatch("PatchTeacher")]
+        public async Task<IActionResult> PatchTeacher(int id,JsonPatchDocument<PatchTeacher> jsonPatchTeacher)
+        {
+            var teachers = new PatchTeacher();
+            try
+            { 
+                if (jsonPatchTeacher != null)
+                {
+                    teachers.Id = id;
+                    jsonPatchTeacher.ApplyTo(teachers);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            return await HandleResponse(teachers);
+        } 
+        
+        
         
     }
 }

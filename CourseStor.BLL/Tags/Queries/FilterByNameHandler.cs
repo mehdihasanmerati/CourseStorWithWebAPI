@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Tags.Queries
 {
-    public class FilterByNameHandler : ApplicationServiceHandler<FilterByName, List<TagQueryResult>>
+    public class FilterByNameHandler : BaseApplicationServiceHandler<FilterByName, List<TagQueryResult>>
     {
         public FilterByNameHandler(CourseStorDbContext context) : base(context)
         {

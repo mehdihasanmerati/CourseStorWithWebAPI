@@ -6,7 +6,7 @@ using CourseStor.Models.Orders.Queries;
 
 namespace CourseStor.BLL.Orders.Queries
 {
-    public class FilterByOrderHandler : ApplicationServiceHandler<FilterByOrder, List<OrderQueryResult>>
+    public class FilterByOrderHandler : BaseApplicationServiceHandler<FilterByOrder, List<OrderQueryResult>>
     {
         public FilterByOrderHandler(CourseStorDbContext context) : base(context)
         {

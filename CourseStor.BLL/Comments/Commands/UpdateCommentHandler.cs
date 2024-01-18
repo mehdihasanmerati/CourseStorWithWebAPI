@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Comments.Commands
 {
-    public class UpdateCommentHandler : ApplicationServiceHandler<UpdateComment, Comment>
+    public class UpdateCommentHandler : BaseApplicationServiceHandler<UpdateComment, Comment>
     {
         public UpdateCommentHandler(CourseStorDbContext context) : base(context)
         {

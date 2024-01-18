@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Comments.Commands
 {
-    public class DeleteCommentHandler : ApplicationServiceHandler<DeleteComment, Comment>
+    public class DeleteCommentHandler : BaseApplicationServiceHandler<DeleteComment, Comment>
     {
         public DeleteCommentHandler(CourseStorDbContext context) : base(context)
         {

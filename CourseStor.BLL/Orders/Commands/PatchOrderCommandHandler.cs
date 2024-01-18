@@ -5,7 +5,7 @@ using CourseStor.Models.Orders.Entities;
 
 namespace CourseStor.BLL.Orders.Commands
 {
-    public class PatchOrderCommandHandler : ApplicationServiceHandler<PatchOrderCommand, Order>
+    public class PatchOrderCommandHandler : BaseApplicationServiceHandler<PatchOrderCommand, Order>
     {
         public PatchOrderCommandHandler(CourseStorDbContext context) : base(context)
         {

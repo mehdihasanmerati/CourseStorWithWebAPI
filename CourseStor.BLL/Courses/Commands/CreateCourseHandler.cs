@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Courses.Commands
 {
-    public class CreateCourseHandler : ApplicationServiceHandler<CreateCourse, Course>
+    public class CreateCourseHandler : BaseApplicationServiceHandler<CreateCourse, Course>
     {
         public CreateCourseHandler(CourseStorDbContext context) : base(context)
         {

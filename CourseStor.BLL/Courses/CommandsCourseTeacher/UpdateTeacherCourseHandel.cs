@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Courses.CommandsCourseTeacher
 {
-    public class UpdateTeacherCourseHandel : ApplicationServiceHandler<UpdateCourseTeacher, CourseTeacher>
+    public class UpdateTeacherCourseHandel : BaseApplicationServiceHandler<UpdateCourseTeacher, CourseTeacher>
     {
         public UpdateTeacherCourseHandel(CourseStorDbContext context) : base(context)
         {

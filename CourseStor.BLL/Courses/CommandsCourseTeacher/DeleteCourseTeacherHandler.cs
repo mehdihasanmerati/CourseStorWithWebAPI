@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Courses.CommandsCourseTeacher
 {
-    public class DeleteCourseTeacherHandler : ApplicationServiceHandler<DeleteCourseTeacher, CourseTeacher>
+    public class DeleteCourseTeacherHandler : BaseApplicationServiceHandler<DeleteCourseTeacher, CourseTeacher>
     {
         public DeleteCourseTeacherHandler(CourseStorDbContext context) : base(context)
         {

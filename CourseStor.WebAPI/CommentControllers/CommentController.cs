@@ -1,10 +1,13 @@
-﻿using CourseStor.Models.Comments.Commands;
+﻿using Azure;
+using CourseStor.Models.Comments.Commands;
 using CourseStor.Models.Comments.Queries;
 using CourseStor.Models.Frameworks;
 using CourseStor.WebAPI.Frameworks;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace CourseStor.WebAPI.CommentControllers
 {
@@ -29,6 +32,26 @@ namespace CourseStor.WebAPI.CommentControllers
         [HttpDelete("DeleteComment")]
         public async Task<IActionResult> DeleteComment(DeleteComment comment) => await HandleResponse(comment);
 
+        [HttpPatch("PatchComment")]
+        public async Task<IActionResult> PatchComment(int id,int courseId,JsonPatchDocument<PatchComment> jsonDocument)
+        {
+            var comments = new PatchComment();
+            try
+            {
+                if (jsonDocument != null && ModelState.IsValid)
+                {
+                    comments.Id = id;
+                    comments.CourseId = courseId;
+                    jsonDocument.ApplyTo(comments);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            return await HandleResponse(comments);
+        }
 
     }
 }

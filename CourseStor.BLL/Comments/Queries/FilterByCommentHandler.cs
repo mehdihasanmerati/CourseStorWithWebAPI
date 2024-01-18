@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CourseStor.BLL.Comments.Queries
 {
-    public class FilterByCommentHandler : ApplicationServiceHandler<FilteByComment, List<CommentQueryResult>>
+    public class FilterByCommentHandler : BaseApplicationServiceHandler<FilteByComment, List<CommentQueryResult>>
     {
         public FilterByCommentHandler(CourseStorDbContext context) : base(context)
         {
