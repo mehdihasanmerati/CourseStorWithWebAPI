@@ -1,0 +1,44 @@
+﻿@page "/"
+@model CourseStor.AAA.Pages.Users.ListModel
+@{
+}
+<h3 class="mt-3">Page List</h3>
+
+<table class="table table-bordered table-hover table-striped mt-4">
+    <tr class="text-center">
+        <td>Id</td>
+        <td>User Name</td>
+        <td>Email</td>
+        <td colspan="3">Actions</td>
+    </tr>
+    @if (Model.Users.Count() < 1)
+    {
+        <tr>
+            <td>There is no user</td>
+        </tr>
+    }
+    else
+    {
+        foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@user.Id" class="btn btn-success">Edit</a>
+                </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" name="id" value="@user.Id" />
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+                <td>
+                    <a asp-page="RoleManager" asp-route-id="@user.Id" class="btn btn-info">Edit Role</a>
+                </td>
+            </tr>
+        }
+    }
+</table>
+<a class="btn btn-primary" asp-page="Create">Create</a>

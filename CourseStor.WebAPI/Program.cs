@@ -20,6 +20,8 @@ builder.Services.AddMediatR(c => c.RegisterServicesFromAssembly(typeof(CreateTag
 builder.Services.AddScoped<ApplicationServiceResponse>();
 //builder.Services.AddMediatR(typeof(CreateTagHandler).Assembly);
 
+builder.Services.AddMvc();
+
 builder.Services.Configure<MvcNewtonsoftJsonOptions>(c =>
 {
     c.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Include;
@@ -40,6 +42,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 

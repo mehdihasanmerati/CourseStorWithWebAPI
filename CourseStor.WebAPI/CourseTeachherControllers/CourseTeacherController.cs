@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace CourseStor.WebAPI.CourseTeachherContorollers
+namespace CourseStor.WebAPI.CourseTeachherControllers
 {
     public class CourseTeacherController : BaseController
     {
@@ -30,7 +30,7 @@ namespace CourseStor.WebAPI.CourseTeachherContorollers
         public async Task<IActionResult> DeleteCourseTeacher(DeleteCourseTeacher courseTeacher) => await HandleResponse(courseTeacher);
 
         [HttpPatch("PatchCourseTeacher")]
-        public async Task<IActionResult> PatchCourseTeacher(int id,int courseid,int teacherid,JsonPatchDocument<PatchCourseTeacher> jsonPatch)
+        public async Task<IActionResult> PatchCourseTeacher(int id, int courseid, int teacherid, JsonPatchDocument<PatchCourseTeacher> jsonPatch)
         {
             var courseTeacher = new PatchCourseTeacher();
             try
@@ -47,7 +47,7 @@ namespace CourseStor.WebAPI.CourseTeachherContorollers
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
             return await HandleResponse(courseTeacher);
         }
 

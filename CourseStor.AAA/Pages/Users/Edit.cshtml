@@ -1,0 +1,24 @@
+﻿@page "{id}"
+@model CourseStor.AAA.Pages.Users.EditModel
+@{
+}
+<h3 class="mt-2">Update Page</h3>
+ 
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <input type="hidden" asp-for="Id" />
+    <div class="mt-3">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" type="text" class="form-control" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div class="mt-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="py-2">
+        <button class="btn btn-primary" type="submit">Edit</button>
+        <a asp-page="List" class="btn btn-secondary">Return To List</a>
+    </div>
+</form>

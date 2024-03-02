@@ -1,0 +1,31 @@
+﻿@page "{Id}"
+@model CourseStor.AAA.Pages.Users.RoleManagerModel
+@{
+}
+<h3 class="mt-2">Manage User Roles</h3>
+
+<table class="table table-bordered table-hover table-striped">
+    <tr>
+        <td>UserName</td>
+        <td>@Model.CurrentUser.UserName</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>@Model.CurrentUser.Email</td>
+    </tr>
+</table>
+<hr />
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input type="hidden" value="@Model.CurrentUser.Id" name="Id" />
+
+    @foreach (var item in Model.AllRoles)
+    {
+        <input type="checkbox" name="Roles" checked="@Model.UserRole.Contains(item.Name)" value="@item.Name" />
+        <label class="p-2">@item.Name</label>
+    }
+    <div class="py-2">
+        <button type="submit" class="btn btn-primary">Update Roles</button>
+        <a asp-page="list" class="btn btn-secondary">Return</a>
+    </div>
+</form>

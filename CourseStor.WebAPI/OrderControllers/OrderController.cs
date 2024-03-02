@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using CourseStor.Models.Frameworks;
 using Microsoft.AspNetCore.JsonPatch;
 
-namespace CourseStor.WebAPI.Orders
+namespace CourseStor.WebAPI.OrderControllers
 {
     public class OrderController : BaseController
     {
@@ -32,7 +32,7 @@ namespace CourseStor.WebAPI.Orders
         public async Task<IActionResult> DeleteOrder(DeleteOrderCommand order) => await HandleResponse(order);
 
         [HttpPatch("PatchOrder")]
-        public async Task<IActionResult> PatchOrder(int id,int courseId, JsonPatchDocument<PatchOrderCommand> jsonDocument)
+        public async Task<IActionResult> PatchOrder(int id, int courseId, JsonPatchDocument<PatchOrderCommand> jsonDocument)
         {
             var patchOrder = new PatchOrderCommand();
             try
@@ -55,6 +55,6 @@ namespace CourseStor.WebAPI.Orders
 
 
 
-    
+
 
 

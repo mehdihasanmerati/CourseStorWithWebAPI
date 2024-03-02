@@ -1,0 +1,26 @@
+﻿@page
+@model CourseStor.AAA.Pages.Account.UserInfoModel
+@{
+}
+<h3 class="mt-3">User Info</h3>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <table class="table table-bordered table-hover table-striped mt-4">
+        <tr>
+            <td>Name</td>
+            <td>@User.Identity.Name</td>
+        </tr>
+        @foreach (var item in User.Claims)
+        {
+            <tr>
+                <td>@item.Type</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h2> Is Not Authenticated </h2>
+}

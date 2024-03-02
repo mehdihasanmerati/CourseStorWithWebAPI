@@ -12,15 +12,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CourseStor.DAL.Migrations
 {
     [DbContext(typeof(CourseStorDbContext))]
-    [Migration("20240117101430_initializeForCourse")]
-    partial class initializeForCourse
+    [Migration("20240225154258_AddEntities")]
+    partial class AddEntities
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -89,7 +89,7 @@ namespace CourseStor.DAL.Migrations
                     b.Property<DateTime?>("CreateDateCorse")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Price")
+                    b.Property<double?>("Price")
                         .HasColumnType("float");
 
                     b.Property<string>("ShortDescription")
